@@ -1,0 +1,5 @@
+# 全部为误报（上游 hiyouga/LLaMA-Factory 公开内容，2026-09-11）：
+# transformers 类名 Qwen2_5OmniThinkerForConditionalGeneration；上游 demo 数据集占位符
+d32c6c014d00a75975260d83c23e69324bc18b8c:scripts/qwen_omni_merge.py:generic-api-key:22
+a0d44c650a9a38c1ec6c8fc48a7daeacca9900a9:data/glaive_toolcall_en_demo.json:generic-api-key:5293
+a0d44c650a9a38c1ec6c8fc48a7daeacca9900a9:data/glaive_toolcall_en_demo.json:generic-api-key:7236

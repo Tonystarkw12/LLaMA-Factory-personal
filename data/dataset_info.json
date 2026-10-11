@@ -830,5 +830,32 @@
       "chosen": "chosen",
       "rejected": "rejected"
     }
+  },
+  "nmr_v3_whole": {
+    "file_name": "nmr_v3/whole_v3.jsonl",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  },
+  "nmr_v3_line": {
+    "file_name": "nmr_v3/line_v3.jsonl",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  },
+  "nmr_v3_block_dedup": {
+    "file_name": "nmr_v3/block_v3_dedup.jsonl",
+    "formatting": "alpaca",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
   }
 }

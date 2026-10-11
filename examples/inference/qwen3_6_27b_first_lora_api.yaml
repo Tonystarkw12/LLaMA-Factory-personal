@@ -1,0 +1,16 @@
+# 对外模型名（yaml不支持model_name字段，启动时用环境变量 API_MODEL_NAME=qwen3_6_27b_first_sft 指定；第1次微调：SFT LoRA）
+### model
+model_name_or_path: /mnt/d1/tony/qwen3.627b
+adapter_name_or_path: saves/qwen3_6-27b-first/lora/sft
+trust_remote_code: true
+
+### method
+finetuning_type: lora
+
+### inference
+template: qwen3_5_nothink
+infer_backend: huggingface
+infer_dtype: bfloat16
+quantization_bit: 4
+quantization_method: bitsandbytes
+max_new_tokens: 32768

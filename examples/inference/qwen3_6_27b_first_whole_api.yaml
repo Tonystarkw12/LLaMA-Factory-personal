@@ -1,6 +1,6 @@
 ### model
 model_name_or_path: /mnt/d1/tony/qwen3.627b
-adapter_name_or_path: saves/qwen3_5-27b/lora/sft
+adapter_name_or_path: saves/qwen3_6-27b-first/nmr/03-whole/checkpoint-175
 trust_remote_code: true
 
 ### method
@@ -12,3 +12,4 @@ infer_backend: huggingface
 infer_dtype: bfloat16
 quantization_bit: 4
 quantization_method: bitsandbytes
+max_new_tokens: 32768

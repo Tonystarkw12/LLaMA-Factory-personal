@@ -1,0 +1,56 @@
+### model
+model_name_or_path: /mnt/d1/tony/qwen3.627b
+adapter_name_or_path: saves/qwen3_6-27b-first/nmr/03-whole
+trust_remote_code: true
+
+### method
+stage: dpo
+do_train: true
+finetuning_type: lora
+lora_rank: 64
+lora_alpha: 128
+lora_target: all
+lora_dropout: 0.05
+pref_loss: sigmoid
+pref_beta: 0.05
+use_liger_loss: false
+quantization_bit: 4
+quantization_method: bitsandbytes
+upcast_layernorm: true
+deepspeed: examples/deepspeed/ds_z3_config.json
+
+### dataset
+dataset: nmr_pulse_program_dpo_5120
+template: qwen3_5_nothink
+cutoff_len: 5120
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: saves/qwen3_6-27b-first/nmr/04-dpo
+logging_steps: 5
+save_steps: 10
+save_total_limit: 8
+plot_loss: true
+overwrite_output_dir: false
+save_only_model: false
+report_to: none
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 5.0e-6
+num_train_epochs: 1.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.05
+bf16: true
+tf32: true
+gradient_checkpointing: true
+ddp_timeout: 180000000
+seed: 42
+
+### eval
+val_size: 0.1
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 10

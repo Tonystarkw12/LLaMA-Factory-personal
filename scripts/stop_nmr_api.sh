@@ -4,7 +4,7 @@ set -euo pipefail
 PROJECT_DIR="${PROJECT_DIR:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
 API_PORT="${API_PORT:-8181}"
 LOG_DIR="${LOG_DIR:-${PROJECT_DIR}/logs}"
-PID_FILE="${PID_FILE:-${LOG_DIR}/qwen3_5_27b_nmr_api.pid}"
+PID_FILE="${PID_FILE:-${LOG_DIR}/qwen3_6_27b_api.pid}"
 
 stopped=0
 
@@ -40,7 +40,7 @@ fi
 
 while IFS= read -r pid; do
   stop_pid "${pid}"
-done < <(pgrep -f "llamafactory-cli api .*qwen3_5_27b_nmr_api.yaml" || true)
+done < <(pgrep -f "llamafactory-cli api .*qwen3_6_27b_first_lora_api.yaml" || true)
 
 while IFS= read -r pid; do
   stop_pid "${pid}"
@@ -53,7 +53,7 @@ if command -v fuser >/dev/null 2>&1; then
 fi
 
 if [[ "${stopped}" -eq 0 ]]; then
-  echo "No matching qwen3_5_27b_nmr API process found."
+  echo "No matching qwen3_6_27b API process found."
 else
-  echo "Stopped qwen3_5_27b_nmr API. GPU memory should release after process exit."
+  echo "Stopped qwen3_6_27b API. GPU memory should release after process exit."
 fi

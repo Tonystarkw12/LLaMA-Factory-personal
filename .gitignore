@@ -216,3 +216,35 @@ data/.nmr_whole_multistyle_cache/
 tensorboard/
 runs/
 lightning_logs/
+logs/
+*.pid
+
+# MemPalace per-project files (issue #185)
+mempalace.yaml
+entities.json
+
+# Local tool indexes / retrieval caches (GB-scale, regenerable)
+.zvec-grep/
+.repowise/
+.deepeval/
+.mimocode/
+
+# Agent & editor local state
+.agents/
+.claude/worktrees/
+.claude/skills/llama-factory/
+.claude/skills/pytorch-lightning/
+.codex/
+.commandcode/
+.mcp.json
+
+# NMR data pipeline: generated datasets and judging artifacts stay local,
+# rebuilt by the pp2label pipeline. See data/DATASET_MANIFEST.md.
+# Note: nmr_pulse_program.jsonl / nmr_pulse_program_dpo_smoke.jsonl remain
+# tracked (pre-existing, referenced by data/dataset_info.json).
+data/nmr_v3/
+data/pp2label/
+data/batch_ai_comparison/
+data/dpo_audit_*/
+data/nmr_*.jsonl
+data/*_golden_backup_*.tar.gz

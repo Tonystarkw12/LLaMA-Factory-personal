@@ -1,0 +1,53 @@
+### model
+model_name_or_path: /mnt/d1/tony/qwen3.627b
+adapter_name_or_path: saves/qwen3_6-27b-first/nmr/01-line
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 64
+lora_alpha: 128
+lora_target: all
+lora_dropout: 0.05
+quantization_bit: 4
+quantization_method: bitsandbytes
+upcast_layernorm: true
+deepspeed: examples/deepspeed/ds_z3_config.json
+
+### dataset
+dataset: nmr_block_high_confidence
+template: qwen3_5_nothink
+cutoff_len: 3072
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: saves/qwen3_6-27b-first/nmr/02-block
+logging_steps: 10
+save_steps: 100
+save_total_limit: 2
+plot_loss: true
+overwrite_output_dir: false
+save_only_model: false
+report_to: swanlab
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 4
+learning_rate: 1.5e-5
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.05
+bf16: true
+tf32: true
+gradient_checkpointing: true
+ddp_timeout: 180000000
+seed: 42
+
+### eval
+val_size: 0.05
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 100
